@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#eaf5ff">
+  <title>E-Portofolio PPG | Etri Suryani</title>
+  <meta name="description" content="E-Portofolio PPG Etri Suryani — dokumentasi Praktik Pengalaman Lapangan di SMK Negeri 5 Yogyakarta.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #398bd8; --blue-dark: #1764ad; --blue-soft: #eaf5ff;
+      --sky: #cfe9ff; --ink: #17324d; --muted: #667d91;
+      --white: #fff; --line: #dcebf7; --shadow: 0 18px 50px rgba(37, 105, 164, .10);
+      --radius: 22px;
+    }
+    .profile-photo {
+    width: 100%;
+    height: 330px;
+    overflow: hidden;
+    border-radius: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body { margin: 0; color: var(--ink); background: #f8fbff; font-family: "DM Sans", sans-serif; line-height: 1.7; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .topbar { position: sticky; top: 0; z-index: 20; background: rgba(255,255,255,.88); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(220,235,247,.9); }
+    .nav-wrap { max-width: 1160px; margin: auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .brand { display: flex; align-items: center; gap: 11px; font-family: Manrope, sans-serif; font-weight: 800; letter-spacing: -.4px; }
+    .brand-mark { width: 39px; height: 39px; display: grid; place-items: center; color: white; border-radius: 13px; background: linear-gradient(135deg,#62b8f4,#2879c6); box-shadow: 0 7px 18px #398bd844; }
+    .brand small { display: block; color: var(--muted); font: 500 10px "DM Sans",sans-serif; letter-spacing: 1.2px; text-transform: uppercase; }
+    .nav-links { display: flex; align-items: center; gap: 7px; }
+    .nav-links a { padding: 9px 13px; color: #536d83; font-size: 13px; font-weight: 700; border-radius: 12px; transition: .2s; }
+    .nav-links a:hover, .nav-links a.active { background: var(--blue-soft); color: var(--blue-dark); }
+    .menu-btn { display: none; border: 1px solid var(--line); background: white; color: var(--ink); border-radius: 12px; padding: 8px 12px; cursor: pointer; }
+    .container { width: min(1100px, calc(100% - 44px)); margin: auto; }
+    .hero { position: relative; overflow: hidden; padding: 76px 0 70px; background: linear-gradient(125deg,#eaf6ff 0%,#f7fbff 58%,#dcefff 100%); }
+    .hero:before,.hero:after { content:""; position:absolute; border-radius:50%; pointer-events:none; }
+    .hero:before { width:360px;height:360px;right:-120px;top:-170px;background:rgba(112,190,245,.17); }
+    .hero:after { width:220px;height:220px;left:-100px;bottom:-120px;background:rgba(112,190,245,.15); }
+    .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns: 1.25fr .75fr; align-items:center; gap:55px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:8px; padding:7px 12px; color:var(--blue-dark); background:#fff; border:1px solid #d8ecfc; border-radius:999px; font-size:12px; font-weight:700; letter-spacing:.5px; }
+    .eyebrow span { width:7px;height:7px;border-radius:50%;background:#48a5e9; }
+    h1,h2,h3 { font-family: Manrope,sans-serif; line-height:1.2; }
+    h1 { margin:20px 0 15px; font-size:clamp(38px,5.5vw,62px); letter-spacing:-2.5px; }
+    h1 em { color:var(--blue); font-style:normal; }
+    .hero-copy { max-width:600px; color:#587187; font-size:16px; }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:28px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:9px; padding:12px 18px; border-radius:13px; font-size:13px; font-weight:700; transition:.2s; }
+    .btn-primary { color:white; background:var(--blue); box-shadow:0 9px 20px #398bd833; }
+    .btn-primary:hover { background:var(--blue-dark); transform:translateY(-2px); }
+    .btn-light { color:var(--blue-dark); background:white; border:1px solid var(--line); }
+    .btn-light:hover { border-color:#9bcdf2; transform:translateY(-2px); }
+    .profile-card { justify-self:end; width:min(100%,310px); padding:17px; background:rgba(255,255,255,.8); border:1px solid white; border-radius:27px; box-shadow:var(--shadow); transform:rotate(2deg); }
+    .photo-frame { height:330px; overflow:hidden; border-radius:19px; background:linear-gradient(145deg,#d5edff,#f4faff); display:grid; place-items:center; }
+    .photo-frame img { width:100%;height:100%;object-fit:cover; }
+    .photo-fallback { text-align:center; color:#6b9bc2; padding:20px; font-size:13px; }
+    .photo-fallback strong { display:block; font:800 52px Manrope,sans-serif; color:#4c9cda; }
+    .profile-caption { padding:15px 5px 3px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .profile-caption strong { display:block; font:800 16px Manrope,sans-serif; }
+    .profile-caption small { color:var(--muted); font-size:12px; }
+    .verified { color:#2c8bd3; background:#eaf5ff; padding:8px; border-radius:12px; }
+    section { padding:78px 0; }
+    .section-head { max-width:680px; margin-bottom:30px; }
+    .section-kicker { color:var(--blue); font-size:11px; font-weight:800; letter-spacing:1.7px; text-transform:uppercase; }
+    h2 { margin:9px 0 11px; font-size:clamp(28px,4vw,39px); letter-spacing:-1.2px; }
+    .section-head p { margin:0; color:var(--muted); }
+    .intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .panel { padding:27px; background:white; border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 8px 30px rgba(37,105,164,.045); }
+    .panel h3 { margin:0 0 10px; font-size:18px; }
+    .panel p { margin:0; color:var(--muted); font-size:14px; }
+    .contact-line { display:flex; align-items:center; gap:13px; margin-top:18px; padding:13px; background:#f2f8fe; border-radius:14px; color:var(--blue-dark); font-size:13px; font-weight:700; overflow-wrap:anywhere; }
+    .contact-icon { flex:0 0 36px; height:36px; display:grid; place-items:center; background:white; border-radius:11px; }
+    .soft-section { background:#f0f7fe; }
+    .cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:17px; }
+    .resource-card { display:flex; flex-direction:column; min-height:190px; padding:23px; background:white; border:1px solid var(--line); border-radius:19px; transition:.22s; }
+    .resource-card:hover { transform:translateY(-4px); box-shadow:var(--shadow); border-color:#b9ddf8; }
+    .resource-top { display:flex; align-items:flex-start; justify-content:space-between; gap:15px; }
+    .resource-icon { width:45px;height:45px; display:grid;place-items:center; border-radius:14px; background:#eaf5ff; color:var(--blue); font-size:20px; }
+    .resource-tag { padding:5px 9px; background:#f2f8fd; color:#6c879e; border-radius:999px; font-size:10px; font-weight:800; letter-spacing:.5px; }
+    .resource-card h3 { margin:17px 0 7px; font-size:17px; }
+    .resource-card p { margin:0 0 17px; color:var(--muted); font-size:13px; }
+    .resource-link { margin-top:auto; display:inline-flex; align-items:center; gap:8px; color:var(--blue-dark); font-size:12px; font-weight:800; }
+    .resource-link span { transition:.2s; }
+    .resource-card:hover .resource-link span { transform:translateX(4px); }
+    .subheading { display:flex; align-items:center; gap:12px; margin:35px 0 16px; }
+    .subheading h3 { margin:0; font-size:19px; }
+    .subheading .line { height:1px; flex:1; background:#d6e8f6; }
+    .four-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .mini-card { display:flex; align-items:center; gap:14px; padding:17px; background:white; border:1px solid var(--line); border-radius:16px; }
+    .mini-number { flex:0 0 39px; height:39px; display:grid;place-items:center; border-radius:12px; background:#eaf5ff; color:var(--blue-dark); font:800 14px Manrope,sans-serif; }
+    .mini-card strong { display:block; font-size:13px; }
+    .mini-card small { color:var(--muted); font-size:11px; }
+    .analysis-list { display:grid; grid-template-columns:1fr; gap:12px; }
+    .analysis-item { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:18px 21px; background:white; border:1px solid var(--line); border-radius:16px; transition:.2s; }
+    .analysis-item:hover { border-color:#afd5f4; transform:translateX(3px); }
+    .analysis-left { display:flex; align-items:center; gap:14px; }
+    .doc-icon { width:42px;height:42px;display:grid;place-items:center;border-radius:12px;background:#edf6ff;color:#398bd8; }
+    .analysis-item strong { display:block; font-size:13px; }
+    .analysis-item small { color:var(--muted); font-size:11px; }
+    .arrow { color:var(--blue); font-size:20px; }
+    .closing { padding:44px; text-align:center; background:linear-gradient(120deg,#e4f3ff,#f5faff); border:1px solid #d7ebfb; border-radius:25px; }
+    .closing h2 { font-size:27px; }
+    .closing p { max-width:650px; margin:0 auto; color:var(--muted); font-size:14px; }
+    footer { padding:27px 20px; color:#71879a; text-align:center; font-size:12px; background:white; border-top:1px solid var(--line); }
+    footer strong { color:var(--blue-dark); }
+    .reveal { opacity:0; transform:translateY(16px); transition:opacity .6s ease,transform .6s ease; }
+    .reveal.visible { opacity:1; transform:none; }
+    @media (max-width:760px) {
+      .nav-wrap { padding:12px 18px; }
+      .menu-btn { display:block; }
+      .nav-links { display:none; position:absolute; top:66px; left:14px; right:14px; padding:12px; flex-direction:column; align-items:stretch; background:white; border:1px solid var(--line); border-radius:17px; box-shadow:var(--shadow); }
+      .nav-links.open { display:flex; }
+      .nav-links a { padding:12px; }
+      .hero { padding:54px 0 52px; }
+      .hero-grid { grid-template-columns:1fr; gap:34px; }
+      .profile-card { justify-self:start; width:230px; transform:rotate(1deg); }
+      .photo-frame { height:240px; }
+      .intro-grid,.cards,.four-grid { grid-template-columns:1fr; }
+      section { padding:59px 0; }
+      .container { width:min(100% - 34px,600px); }
+      .closing { padding:30px 20px; }
+    }
+    @media (prefers-reduced-motion:reduce) { html{scroll-behavior:auto} .reveal{opacity:1;transform:none;transition:none} *{transition:none!important} }
+  </style>
+</head>
+<body>
+<header class="topbar">
+  <div class="nav-wrap">
+    <a class="brand" href="#beranda" aria-label="E-Portofolio Etri Suryani">
+      <span class="brand-mark">ES</span>
+      <span>E-PORTOFOLIO <small>PPG Calon Guru</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-label="Buka menu" aria-expanded="false">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#artefak">Artefak</a>
+      <a href="#analisis">Analisis Artefak</a>
+      <a href="#Refleksi">Refleksi</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="beranda">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow"><span></span> PORTOFOLIO PRAKTIK PENGALAMAN LAPANGAN</div>
+        <h1>Hai, nama saya <em>Etri.</em></h1>
+        <p class="hero-copy">Saya calon guru informatika. Selamat datang di ruang dokumentasi perjalanan belajar, berkarya, dan bertumbuh dalam Praktik Pengalaman Lapangan (PPL).</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#artefak">Jelajahi Artefak <span>↗</span></a>
+          <a class="btn btn-light" href="mailto:etrisuryani.2025@student.uny.ac.id">Hubungi Saya</a>
+        </div>
+      </div>
+<div class="profile-photo">
+    <img
+        src="https://drive.google.com/thumbnail?id=1cAUOuOLNM4xa8b032EeKPF0zlW7Gw50-&sz=w1000"
+        alt="Foto Profil Etri Suryani"
+        onerror="this.onerror=null; this.src='https://drive.google.com/uc?export=view&id=1cAUOuOLNM4xa8b032EeKPF0zlW7Gw50-'"
+    >
+</div>
+        <div class="profile-caption">
+          <div><strong>Etri Suryani</strong><small>Calon Guru Informatika</small></div>
+          <span class="verified" title="E-Portofolio PPG">✦</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tentang">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">01 / Beranda</div>
+        <h2>Salam kenal!</h2>
+        <p>Ruang singkat untuk mengenal saya dan memahami tujuan penyusunan e-portofolio ini.</p>
+      </div>
+      <div class="intro-grid">
+        <article class="panel reveal">
+          <h3>Pengantar E-Portofolio</h3>
+          <p>E-Portofolio ini berisi dokumentasi pelaksanaan Praktik Pengalaman Lapangan (PPL) di SMK Negeri 5 Yogyakarta. Portofolio ini disusun sebagai bukti proses, hasil, dan refleksi kegiatan pembelajaran yang dapat dipertanggungjawabkan. Melalui kumpulan artefak dan analisis ini, saya mendokumentasikan pengalaman dalam merancang, melaksanakan, serta mengevaluasi pembelajaran sebagai calon guru informatika.</p>
+        </article>
+        <article class="panel reveal">
+          <h3>Kontak</h3>
+          <p>Silakan menghubungi saya melalui alamat email berikut untuk keperluan komunikasi dan informasi lebih lanjut.</p>
+          <a class="contact-line" href="mailto:etrisuryani.2025@student.uny.ac.id">
+            <span class="contact-icon">✉</span>
+            <span>etrisuryani.2025@student.uny.ac.id</span>
+          </a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft-section" id="artefak">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">02 / Dokumentasi</div>
+        <h2>Artefak PPL</h2>
+        <p>Kumpulan perangkat, media, hasil pembelajaran, dan dokumentasi penilaian selama pelaksanaan PPL di SMK Negeri 5 Yogyakarta.</p>
+      </div>
+      <div class="cards">
+        <a class="resource-card reveal" href="https://drive.google.com/file/d/1fnAHOveAZxLCoF9fJacNbDsEj8o56214/view?usp=sharing" target="_blank" rel="noopener">
+          <div class="resource-top"><span class="resource-icon">▤</span><span class="resource-tag">PERANGKAT AJAR</span></div>
+          <h3>Rencana Pelaksanaan Pembelajaran (RPP)</h3>
+          <p>Dokumen perencanaan pembelajaran sebagai pedoman pelaksanaan kegiatan belajar mengajar.</p>
+          <span class="resource-link">Buka dokumen <span>↗</span></span>
+        </a>
+        <a class="resource-card reveal" href="https://etrisuryani9a.github.io/TEKNIK-PROMPTING-UNTUK-JURUSAN/" target="_blank" rel="noopener">
+          <div class="resource-top"><span class="resource-icon">✧</span><span class="resource-tag">MEDIA DIGITAL</span></div>
+          <h3>Media Pembelajaran</h3>
+          <p>Media pembelajaran digital interaktif tentang teknik prompting yang digunakan untuk mendukung proses belajar.</p>
+          <span class="resource-link">Kunjungi media <span>↗</span></span>
+        </a>
+        <a class="resource-card reveal" href="https://docs.google.com/spreadsheets/d/1L3eJDV9BexRvasTTEfN-rQRlC7Nn-3_e/edit?usp=sharing&ouid=105536277774665890287&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <div class="resource-top"><span class="resource-icon">▦</span><span class="resource-tag">DOKUMEN PENILAIAN</span></div>
+          <h3>Penilaian CP &amp; DPL</h3>
+          <p>Dokumentasi penilaian capaian pembelajaran (CP) dan dimensi profil lulusan (DPL).</p>
+          <span class="resource-link">Buka lembar penilaian <span>↗</span></span>
+        </a>
+        <a class="resource-card reveal" href="https://drive.google.com/file/d/1nSAtIW7X0lQJPH20y1cla_02Pg7Rv78S/view?usp=sharing" target="_blank" rel="noopener">
+          <div class="resource-top"><span class="resource-icon">▷</span><span class="resource-tag">DOKUMENTASI VIDEO</span></div>
+          <h3>Video Pembelajaran</h3>
+          <p>Dokumentasi pelaksanaan pembelajaran sebagai gambaran proses mengajar di kelas.</p>
+          <span class="resource-link">Tonton video <span>↗</span></span>
+        </a>
+      </div>
+
+      <div class="subheading reveal"><h3>Hasil Kerja Siswa</h3><span class="line"></span></div>
+      <div class="four-grid">
+        <a class="mini-card reveal" href="https://drive.google.com/file/d/1dsSS6mVaGKV3Kv9QorPNcsvFFp5nHRXT/view?usp=sharing" target="_blank" rel="noopener">
+          <span class="mini-number">01</span><span><strong>Hasil Kerja Siswa 01</strong><small>Dokumentasi karya peserta didik · Buka file ↗</small></span>
+        </a>
+        <a class="mini-card reveal" href="https://drive.google.com/file/d/1PJoMfnTwW-ct9JtmCH1svmCU_LAln5a4/view?usp=sharing" target="_blank" rel="noopener">
+          <span class="mini-number">02</span><span><strong>Hasil Kerja Siswa 02</strong><small>Dokumentasi karya peserta didik · Buka file ↗</small></span>
+        </a>
+        <a class="mini-card reveal" href="https://drive.google.com/file/d/1Vvc8MEKxVuSnkTtJ8jhJC3MsKQtE7inM/view?usp=sharing" target="_blank" rel="noopener">
+          <span class="mini-number">03</span><span><strong>Hasil Kerja Siswa 03</strong><small>Dokumentasi karya peserta didik · Buka file ↗</small></span>
+        </a>
+        <a class="mini-card reveal" href="https://drive.google.com/file/d/1BDXVjDmLF45IvQt0pDeT51VD3RjDFPjM/view?usp=sharing" target="_blank" rel="noopener">
+          <span class="mini-number">04</span><span><strong>Hasil Kerja Siswa 04</strong><small>Dokumentasi karya peserta didik · Buka file ↗</small></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="analisis">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">03 / Refleksi dan Evaluasi</div>
+        <h2>Analisis Artefak</h2>
+        <p>Dokumen analisis sebagai bentuk refleksi kritis terhadap perencanaan, proses, hasil, dan pengembangan pembelajaran.</p>
+      </div>
+      <div class="analysis-list">
+        <a class="analysis-item reveal" href="https://docs.google.com/document/d/1_7JUa7UBOCQaOvehz1SAVh7dPjPLWcyb/edit?usp=sharing&ouid=114555068904123360535&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <span class="analysis-left"><span class="doc-icon">▤</span><span><strong>Analisis Artefak 01</strong><small>Dokumen analisis dan refleksi pembelajaran</small></span></span><span class="arrow">↗</span>
+        </a>
+        <a class="analysis-item reveal" href="https://docs.google.com/document/d/11J2oRPyWEMg0Fmh6gMfq3pE85W1On_YD/edit?usp=sharing&ouid=114555068904123360535&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <span class="analysis-left"><span class="doc-icon">▤</span><span><strong>Analisis Artefak 02</strong><small>Dokumen analisis dan refleksi pembelajaran</small></span></span><span class="arrow">↗</span>
+        </a>
+        <a class="analysis-item reveal" href="https://docs.google.com/document/d/1RKjSJ0eKVkZ8plx1FhYCE167Pu9ThgM2/edit?usp=sharing&ouid=114555068904123360535&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <span class="analysis-left"><span class="doc-icon">▤</span><span><strong>Analisis Artefak 03</strong><small>Dokumen analisis dan refleksi pembelajaran</small></span></span><span class="arrow">↗</span>
+        </a>
+        <a class="analysis-item reveal" href="https://docs.google.com/document/d/1Ko1BUYVfJ_3pJRa6iWWdItnaBwAEpW1A/edit?usp=sharing&ouid=114555068904123360535&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <span class="analysis-left"><span class="doc-icon">▤</span><span><strong>Analisis Artefak 04</strong><small>Dokumen analisis dan refleksi pembelajaran</small></span></span><span class="arrow">↗</span>
+        </a>
+        <a class="analysis-item reveal" href="https://docs.google.com/document/d/1AW4hciBVrdiZxqvktDbmJH8Uky_86Gmu/edit?usp=sharing&ouid=114555068904123360535&rtpof=true&sd=true" target="_blank" rel="noopener">
+          <span class="analysis-left"><span class="doc-icon">▤</span><span><strong>Analisis Artefak 05</strong><small>Dokumen analisis dan refleksi pembelajaran</small></span></span><span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="Refleksi">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="section-kicker">03 / Refleksi dan Evaluasi</div>
+        <h2>Refleksi</h2>
+        <p>Dokumen refleksi diri terhadap model guru yang dituju, filosofi mengajar, dan refleksi akhir.</p>
+      </div>
+      <div class="analysis-list">
+        <a class="analysis-item reveal" href="https://canva.link/6fpztbyaag3l3rn" target="_blank" rel="noopener">
+          <span class="analysis-left"><span class="doc-icon">▤</span><span><strong>Refleksi</strong><small>Dokumen Refleksi Diri</small></span></span><span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft-section">
+    <div class="container">
+      <div class="closing reveal">
+        <div class="section-kicker">Terima kasih telah berkunjung</div>
+        <h2>Belajar, bertumbuh, dan terus menginspirasi.</h2>
+        <p>Setiap artefak dalam e-portofolio ini merupakan bagian dari proses saya untuk terus mengembangkan kompetensi sebagai calon pendidik, khususnya dalam pembelajaran informatika yang bermakna dan relevan.</p>
+        <div class="hero-actions" style="justify-content:center">
+          <a class="btn btn-primary" href="mailto:etrisuryani.2025@student.uny.ac.id">Kirim Email <span>↗</span></a>
+          <a class="btn btn-light" href="#beranda">Kembali ke Atas ↑</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>Etri Suryani</strong> · E-Portofolio PPG Calon Guru · Dokumentasi PPL SMK Negeri 5 Yogyakarta<br>
+  <span>© 2026 · Disusun sebagai dokumentasi dan bukti pelaksanaan praktik pembelajaran.</span>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const navLinks = document.getElementById('navLinks');
+  menuBtn.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.textContent = open ? '✕' : '☰';
+  });
+  navLinks.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    navLinks.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); menuBtn.textContent='☰';
+  }));
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); }
+    });
+  }, { threshold: .08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  const sections = [...document.querySelectorAll('main section[id]')];
+  const navItems = [...document.querySelectorAll('.nav-links a')];
+  window.addEventListener('scroll', () => {
+    let current = 'beranda';
+    sections.forEach(section => { if (window.scrollY >= section.offsetTop - 130) current = section.id; });
+    navItems.forEach(item => item.classList.toggle('active', item.getAttribute('href') === '#' + current));
+  }, { passive:true });
+</script>
+</body>
+</html>
